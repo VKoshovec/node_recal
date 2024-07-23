@@ -1,6 +1,7 @@
 const express = require ('express');
 const app = express();
 const cors = require('cors');
+const contacts = require('./contact');
 
 app.use(cors());
 
@@ -21,7 +22,9 @@ app.post('/', (req, res) => {
     res.status(201).json({
         "res": "add ok"
     })
-})
+});
+
+app.use('/contacts', contacts);
 
 app.listen(3000, ()=>{
     console.log("server is running...");
